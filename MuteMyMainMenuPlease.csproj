@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>MuteMyMainMenuPlease</RootNamespace>
+    <AssemblyName>MuteMyMainMenuPlease</AssemblyName>
+    <ModFolderName>MuteMyMainMenuPlease</ModFolderName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableHarmony>true</EnableHarmony>
+    <LangVersion>latest</LangVersion>
+    <Authors>Arshia1381</Authors>
+    <Version>1.0.0</Version>
+    <Description>Fixes the inverted and desynchronized title mute button while preserving custom user volume levels.</Description>
+    <GamePath Condition="'$(GamePath)' == '' and Exists('D:\Steam\steamapps\common\Stardew Valley')">D:\Steam\steamapps\common\Stardew Valley</GamePath>
+    <EnableModDeploy Condition="'$(EnableModDeploy)' == ''">true</EnableModDeploy>
+    <EnableModZip Condition="'$(EnableModZip)' == ''">true</EnableModZip>
+    <ModZipPath>C:\MutePlease\artifacts</ModZipPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Stardew Valley">
+      <HintPath>$(GamePath)\Stardew Valley.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Lidgren.Network">
+      <HintPath Condition="Exists('$(GamePath)\Lidgren.Network.dll')">$(GamePath)\Lidgren.Network.dll</HintPath>
+      <HintPath Condition="!Exists('$(GamePath)\Lidgren.Network.dll')">$(MSBuildProjectDirectory)\references\net6\Lidgren.Network.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="FixReferences" BeforeTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <Reference Remove="StardewModdingAPI" />
+      <Reference Remove="0Harmony" />
+      <Reference Remove="SMAPI.Toolkit.CoreInterfaces" />
+      <Reference Include="StardewModdingAPI">
+        <HintPath>$(MSBuildProjectDirectory)\references\net6\StardewModdingAPI.dll</HintPath>
+        <Private>false</Private>
+      </Reference>
+      <Reference Include="0Harmony">
+        <HintPath>$(MSBuildProjectDirectory)\references\net6\0Harmony.dll</HintPath>
+        <Private>false</Private>
+      </Reference>
+      <Reference Include="SMAPI.Toolkit.CoreInterfaces">
+        <HintPath>$(MSBuildProjectDirectory)\references\net6\SMAPI.Toolkit.CoreInterfaces.dll</HintPath>
+        <Private>false</Private>
+      </Reference>
+    </ItemGroup>
+  </Target>
+</Project>

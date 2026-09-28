@@ -1,0 +1,9 @@
+{
+  "Name": "Mute My Main Menu Please",
+  "Author": "Arshia1381",
+  "Version": "1.0.0",
+  "Description": "Fixes the inverted and desynchronized title mute button while preserving custom user volume levels.",
+  "UniqueID": "Arshia1381.MuteMyMainMenuPlease",
+  "EntryDll": "MuteMyMainMenuPlease.dll",
+  "MinimumApiVersion": "4.0.0"
+}

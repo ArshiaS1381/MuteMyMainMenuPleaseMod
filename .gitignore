@@ -1,0 +1,29 @@
+## Build outputs
+bin/
+obj/
+artifacts/
+*.zip
+*.nupkg
+*.snupkg
+
+## User / IDE settings
+.vs/
+.idea/
+*.user
+*.userprefs
+*.suo
+*.sln.docstates
+
+## OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+## Diagnostics, Traces, Dumps & Logs
+*.nettrace
+*.speedscope.json
+*.chromium.json
+*.gcdump
+*.dmp
+*.log
+*.txt.log
