@@ -6,6 +6,11 @@ artifacts/
 *.nupkg
 *.snupkg
 
+## Local assembly references
+references/
+*.dll
+*.pdb
+
 ## User / IDE settings
 .vs/
 .idea/
